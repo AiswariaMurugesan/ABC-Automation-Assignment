@@ -31,8 +31,6 @@ There are 2 different java script files available for section A, one with page o
    Follwoing are teh ones with page objects:
     1. SectionAWithPO.js
     2. ABCNews.js
-    3. ABCVideo.js
-    4. ABCImages.js
     
  For the execution purpose, please use the one without page objects as the one with page objects have errors exisiting.
  
