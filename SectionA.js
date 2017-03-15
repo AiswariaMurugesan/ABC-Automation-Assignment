@@ -7,30 +7,25 @@ module.exports = {
 		.waitForElementVisible('body', 1000);  
 	browser.execute("return document.readyState;", function(result) {
   	  if(result.value = 'complete') {
-		console.log("Page Loaded Succesfully");
-	}
+		console.log("Page Loaded Succesfully");	}
 	});   
 	} catch (myError) {
-		console.log(myError);
+		done(myError);
 	};
   },	
-
   'Verify News Banner' : function (browser, done) {
 	try{
 		browser
-			.useXpath()
-			//Locating the element "News Banner"
+			.useXpath()			//Locating the element "News Banner"
 			.waitForElementVisible('//*[@id="header"]/div[1]/a/img[2]', 1000);
 			console.log("News Banner is Present");
 	}catch(myError){
-		console.log(myError);
+		done(myError);
 	};
  },
-
   'Navigate to Just In' : function (browser, done) {
 	try{
-		browser
-			.useXpath()
+		browser			.useXpath()
 			//Locating the menu item "JustIn"
 			.waitForElementVisible('//*[@id="n-justin"]/a', 5000)
 			.click('//*[@id="n-justin"]/a')
@@ -39,7 +34,7 @@ module.exports = {
 			.verify.containsText('//*[@id="container_subheader"]/div/div/h1', 'Just In');
 			
 	} catch (myError){
-		console.log(myError);
+		done(myError);
 	};
  },
 
@@ -61,7 +56,7 @@ module.exports = {
 			.waitForElementVisible('//*[@id="main_content"]/div/div/div[1]/div/ul/li', 5000)
 			.elements('xpath','//*[@id="main_content"]/div[2]/div/div[1]/div/ul/li/div', iter);
 		}catch (myError){
-			console.log(myError);
+			done(myError);
 		};
  },
  
@@ -105,7 +100,7 @@ module.exports = {
 			.waitForElementVisible('//*[@id="main_content"]/div/div/div[1]/div/ul/li', 5000)
 			.elements('xpath','//*[@id="main_content"]/div[2]/div/div[1]/div/ul/li/p[2]', iter);
 		}catch (myError){
-			console.log(myError);
+			done(myError);
 		};
  },
 
