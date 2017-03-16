@@ -10,7 +10,7 @@ module.exports = {
 		console.log("Page Loaded Succesfully");	}
 	});   
 	} catch (myError) {
-		done(myError);
+		console.log(myError);
 	};
   },	
   'Verify News Banner' : function (browser, done) {
@@ -20,7 +20,7 @@ module.exports = {
 			.waitForElementVisible('//*[@id="header"]/div[1]/a/img[2]', 1000);
 			console.log("News Banner is Present");
 	}catch(myError){
-		done(myError);
+		console.log(myError);
 	};
  },
   'Navigate to Just In' : function (browser, done) {
@@ -34,7 +34,7 @@ module.exports = {
 			.verify.containsText('//*[@id="container_subheader"]/div/div/h1', 'Just In');
 			
 	} catch (myError){
-		done(myError);
+		console.log(myError);
 	};
  },
 
@@ -55,8 +55,8 @@ module.exports = {
 			.useXpath()
 			.waitForElementVisible('//*[@id="main_content"]/div/div/div[1]/div/ul/li', 5000)
 			.elements('xpath','//*[@id="main_content"]/div[2]/div/div[1]/div/ul/li/div', iter);
-		}catch (myError){
-			done(myError);
+	}catch (myError){
+			console.log(myError);
 		};
  },
  
@@ -77,8 +77,8 @@ module.exports = {
 			.useXpath()
 			.waitForElementVisible('//*[@id="main_content"]/div/div/div[1]/div/ul/li', 5000)
 			.elements('xpath','//*[@id="main_content"]/div[2]/div/div[1]/div/ul/li/p[1]', iter);
-		}catch (myError){
-			done(myError);
+	}catch (myError){
+			console.log(myError);
 		};
  },
 
@@ -96,11 +96,11 @@ module.exports = {
 		}
 		};
 		browser
-			useXpath()
+			.useXpath()
 			.waitForElementVisible('//*[@id="main_content"]/div/div/div[1]/div/ul/li', 5000)
 			.elements('xpath','//*[@id="main_content"]/div[2]/div/div[1]/div/ul/li/p[2]', iter);
-		}catch (myError){
-			done(myError);
+	}catch (myError){
+			console.log(myError);
 		};
  },
 
@@ -119,7 +119,7 @@ module.exports = {
 				}
 				});
 	}catch(myError){
-		done(myError);	
+		console.log(myError);	
 	};
  },
 
@@ -143,7 +143,7 @@ module.exports = {
 			.elements('xpath', '//*[@id="main_content"]/div[2]/div/div/div/ul/li', compare)
 			.end();
 	}catch(myError){
-		done(myError);	
+		console.log(myError);	
 	};
  }
 };
