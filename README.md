@@ -34,7 +34,7 @@ There are 2 different java script files available for section A, one with page o
     
 For execution,
 1. To see the behaviour of framework for full run without error, please use SectionA.js
-2. To see how the framework responds in failures, please use SectionB.js. Since all the test cases inside a single JavaScript file are considered dependant test cases, failure should make the runner skip the remaining test cases
+2. To see how the framework responds in failures, please use SectionB.js.
 3. For reusability, I have created page objects. ABCNews.js is the page object and SectionAWithPO.js uses this page object. (For some unknown reasons, the test runner is unable to identify the "elements" section of the page object. I would recommend you not to use this for execution)
 4. Remaining answers are documented in the file AnswersForSectionC.docx"
  
