@@ -130,7 +130,7 @@ module.exports = {
 			result.value.forEach(function(element){
 				//Clicking the Right arrow for each image and waiting for the new image to load
 				browser
-				.click('//*[@id="main_content"]/div[2]/div/div/div/div/div/a[2]')
+				.click('//*[@id="main_content"]/div[1]/div/div/div/div/div/a[2]')
 				.waitForElementVisible('//*[@id="main_content"]/div[2]/div/div/div/div/ul', 5000);	
 		})
 		}
