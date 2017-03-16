@@ -21,7 +21,7 @@ Mapping of Test Suites to the Assignment Questions:
   2. The Test suites with prefix "SectionB" corresponds to the questions in Section B of the assignment
   3. The Test Suite "Verify Json" corresponds to the 1st question in Section C
   4. Answers for questions 2 and 3 in Section C are given in the word document "AnsweraForSectionC.docx"
-  
+Please donwload the Test suites and place it in a folder called "tests" in your project.  
 There are 2 different java script files available for section A, one with page objects and one without page objects.
   Follwoing are the ones without page objects:
     1. SectionA.js
