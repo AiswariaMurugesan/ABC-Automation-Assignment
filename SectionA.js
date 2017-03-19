@@ -8,7 +8,8 @@ module.exports = {
 	browser.execute("return document.readyState;", function(result) {
   	  if(result.value = 'complete') {
 		console.log("Page Loaded Succesfully");	
-	  };)
+	  };
+	})
 	      .verify.title("ABC-Australian Briadcasting Corporation");
 	
   },	
