@@ -40,7 +40,7 @@ module.exports = {
 			.click('//*[@id="rn-programindex"]/li[3]/a');
 		//Asserting the header of the page
 		browser
-			.assert.containsText('//*[@id="header"]/div/div[1]/h2/a', 'A Big Country')
+			.verify.containsText('//*[@id="header"]/div/div[1]/h2/a', 'A Big Country')
 			
 
  },
@@ -62,6 +62,7 @@ module.exports = {
 							browser.click('//*[@id="right-arrow"]');
 						}
 					})
+	
 					.click('//*[@id="content"]/div[1]/div/div/div[2]/ul/li[22]/a/div');
 					}
 				}
@@ -81,7 +82,7 @@ module.exports = {
 		//Waiting for the article title to get displayed	
 		browser
 			.waitForElementVisible('//*[@id="content"]/div[1]/div/div[2]/ul/li[1]/div/div[1]/h3/a', 5000)
-			.assert.containsText('//*[@id="content"]/div[1]/div/div[2]/ul/li[1]/div/div[1]/h3/a', text);
+			.verify.containsText('//*[@id="content"]/div[1]/div/div[2]/ul/li[1]/div/div[1]/h3/a', text);
  },
  
  'Click on Share button and Verify the PopUp' : function (browser){
@@ -97,7 +98,7 @@ module.exports = {
 					browser
 						.assert.equal(winHandle.value.length, 2)
 						.switchWindow(winHandle.value[1])
-						.assert.title('Facebook');
+						.verify.title('Facebook');
 				})
 			})
  },
