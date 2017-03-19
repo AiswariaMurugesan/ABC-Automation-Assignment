@@ -1,16 +1,19 @@
 module.exports = {
+	before : function (browser) {
+	browser
+		.windowMaximize()
+		.url('http://abc.net.au/news');
+	},
   'Verify Page Load' : function (browser) {
 
 	browser
-		.windowMaximize()
-		.url('http://abc.net.au/news')
 		.waitForElementVisible('body', 1000);  
 	browser.execute("return document.readyState;", function(result) {
   	  if(result.value = 'complete') {
 		console.log("Page Loaded Succesfully");	
 	  };
 	})
-	      .verify.title("ABC-Australian Briadcasting Corporation");
+	      .verify.title("ABC News (Australian Broadcasting Corporation)");
 	
   },	
   'Verify News Banner' : function (browser, done) {
@@ -23,7 +26,8 @@ module.exports = {
  },
   'Navigate to Just In' : function (browser, done) {
 	
-	browser			.useXpath()
+	browser	
+		.useXpath()
 		//Locating the menu item "JustIn"
 		.waitForElementVisible('//*[@id="n-justin"]/a', 5000)
 		.click('//*[@id="n-justin"]/a')
