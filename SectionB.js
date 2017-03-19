@@ -1,16 +1,12 @@
 module.exports = {
 	
 	before: function(browser){
-		try{
 			browser
 				.windowMaximize()
 				.url('http://www.abc.net.au/radionational/')
-		}catch(myError){
-			done(myError);
-		};
+
 	},
   'Verify Page Load' : function (browser) {
-	try{
 		browser
 			.waitForElementVisible('body', 1000);  
 		browser.execute("return document.readyState;", function(result) {
@@ -18,13 +14,9 @@ module.exports = {
 			console.log("Page Loaded Succesfully");
 		}
 		});   
-	} catch (myError) {
-		done(myError);;
-	};
   },
 
  'Navigate to program' : function (browser){
-	try{
 		browser
 			.useXpath();
 		//Locationg and clicking the menu item "Programs"
@@ -37,14 +29,10 @@ module.exports = {
 		browser
 			.waitForElementVisible('//*[@id="rn-programindex"]/li[1]/a', 5000);
 			
-	} catch (myError) {
-		done(myError);;
-	};
 
  },
 
  'Navigate to Submenu: Big Ideas' : function (browser){
-	try{
 		//Locating and clicking sub menu "A Big Country"
 		console.log("Finding Sub menu: A Big Country");
 		browser
@@ -54,14 +42,10 @@ module.exports = {
 		browser
 			.assert.containsText('//*[@id="header"]/div/div[1]/h2/a', 'A Big Country')
 			
-	} catch (myError) {
-		done(myError);;
-	};
 
  },
 
  'Navigate to last item in Program Guide' : function (browser){
-	try{
 		// Navigating to the last element by trying to locate the button "View full Program guide" and then clicking on the last element 
 		
 		browser
@@ -82,15 +66,10 @@ module.exports = {
 					}
 				}
 			});	
-	
-	} catch (myError) {
-		done(myError);;
-	};
 
  },
 
  'Search For A Program' : function (browser){
-	try{
 		var text = 'infant stress';
 		browser
 			.useXpath();
@@ -103,13 +82,9 @@ module.exports = {
 		browser
 			.waitForElementVisible('//*[@id="content"]/div[1]/div/div[2]/ul/li[1]/div/div[1]/h3/a', 5000)
 			.assert.containsText('//*[@id="content"]/div[1]/div/div[2]/ul/li[1]/div/div[1]/h3/a', text);
-	} catch (myError) {
-		done(myError);;
-	};
  },
  
  'Click on Share button and Verify the PopUp' : function (browser){
-	 try{
 		browser
 			.url('http://www.abc.net.au/radionational/programs/bigideas/a-fortunate-universe/8076406');
 			//Locating Share Button
@@ -125,10 +100,10 @@ module.exports = {
 						.assert.title('Facebook');
 				})
 			})
-	 }catch(myError){
-		 done(myError);;
-	 };
- }
+ },
+	after:function(browser){
+		browser.end();
+	}
 };	
 
   
