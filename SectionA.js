@@ -120,8 +120,10 @@ module.exports = {
 			.url('http://www.abc.net.au/news/2017-02-10/abc-open-pic-of-the-week/8256256')
 			//Finding the total number of images present and waiting for them to load
 			.waitForElementVisible('//*[@id="main_content"]/div[2]/div/div/div/ul/li', 5000)
-			.elements('xpath', '//*[@id="main_content"]/div[2]/div/div/div/ul/li', compare)
-			.end();
+			.elements('xpath', '//*[@id="main_content"]/div[2]/div/div/div/ul/li', compare);
 	
- }
+ },
+	 after: function(browser){
+		 browser.end();
+	 }
 };
