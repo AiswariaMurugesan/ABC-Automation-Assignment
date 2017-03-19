@@ -1,30 +1,27 @@
 module.exports = {
-  'Verify Page Load' : function (browser, done) {
-	try{
+  'Verify Page Load' : function (browser) {
+
 		browser
 		.windowMaximize()
 		.url('http://abc.net.au/news')
 		.waitForElementVisible('body', 1000);  
 	browser.execute("return document.readyState;", function(result) {
   	  if(result.value = 'complete') {
-		console.log("Page Loaded Succesfully");	}
-	});   
-	} catch (myError) {
-		console.log(myError);
-	};
+		console.log("Page Loaded Succesfully");	
+	  };)
+	      .verify.title("ABC-Australian Briadcasting Corporation");
+	
   },	
   'Verify News Banner' : function (browser, done) {
-	try{
+
 		browser
 			.useXpath()			//Locating the element "News Banner"
 			.waitForElementVisible('//*[@id="header"]/div[1]/a/img[2]', 1000);
 			console.log("News Banner is Present");
-	}catch(myError){
-		console.log(myError);
-	};
+	
  },
   'Navigate to Just In' : function (browser, done) {
-	try{
+	
 		browser			.useXpath()
 			//Locating the menu item "JustIn"
 			.waitForElementVisible('//*[@id="n-justin"]/a', 5000)
@@ -33,13 +30,9 @@ module.exports = {
 			.waitForElementVisible('//*[@id="container_subheader"]/div/div/h1', 5000)
 			.verify.containsText('//*[@id="container_subheader"]/div/div/h1', 'Just In');
 			
-	} catch (myError){
-		console.log(myError);
-	};
  },
 
   'Verify Author Present for every Article' : function (browser, done) {
-	try{
 		function iter(elements){
 			if(elements.value.length>1){
 				console.log('function called');	
@@ -55,13 +48,9 @@ module.exports = {
 			.useXpath()
 			.waitForElementVisible('//*[@id="main_content"]/div/div/div[1]/div/ul/li', 5000)
 			.elements('xpath','//*[@id="main_content"]/div[2]/div/div[1]/div/ul/li/div', iter);
-	}catch (myError){
-			console.log(myError);
-		};
  },
  
   'Verify TimeStamp Present for every Article' : function (browser, done) {
-	try{
 		function iter(elements){
 			if(elements.value.length>1){
 				console.log('function called');	
@@ -77,13 +66,9 @@ module.exports = {
 			.useXpath()
 			.waitForElementVisible('//*[@id="main_content"]/div/div/div[1]/div/ul/li', 5000)
 			.elements('xpath','//*[@id="main_content"]/div[2]/div/div[1]/div/ul/li/p[1]', iter);
-	}catch (myError){
-			console.log(myError);
-		};
  },
 
  'Verify Text Present for every Article' : function (browser, done) {
-	try{
 		function iter(elements){
 			if(elements.value.length>1){
 				console.log('function called');	
@@ -99,15 +84,13 @@ module.exports = {
 			.useXpath()
 			.waitForElementVisible('//*[@id="main_content"]/div/div/div[1]/div/ul/li', 5000)
 			.elements('xpath','//*[@id="main_content"]/div[2]/div/div[1]/div/ul/li/p[2]', iter);
-	}catch (myError){
-			console.log(myError);
-		};
+
  },
 
 
 
  'Verify Video Load' : function (browser, done){
-	try{
+
 		//Finding the readyState of the video
 		browser
 			.url('http://www.abc.net.au/news/2017-02-09/weatherill-promises-to-intervene-dramatically/8254908')
@@ -118,20 +101,17 @@ module.exports = {
 					console.log("Video Not Loaded");
 				}
 				});
-	}catch(myError){
-		console.log(myError);	
-	};
  },
 
  'Verify the images displayed' : function (browser, done){
-	try{
+	 
 		function compare(result){
 			if(result.value.length>0){
 			result.value.forEach(function(element){
 				//Clicking the Right arrow for each image and waiting for the new image to load
 				browser
 				.click('//*[@id="main_content"]/div[1]/div/div/div/div/div/a[2]')
-				.waitForElementVisible('//*[@id="main_content"]/div[2]/div/div/div/div/ul', 5000);	
+				.waitForElementVisible('//*[@id="main_content"]/div[2]/div/div/div/div/ul', 5000)
 		})
 		}
 	};
@@ -142,8 +122,6 @@ module.exports = {
 			.waitForElementVisible('//*[@id="main_content"]/div[2]/div/div/div/ul/li', 5000)
 			.elements('xpath', '//*[@id="main_content"]/div[2]/div/div/div/ul/li', compare)
 			.end();
-	}catch(myError){
-		console.log(myError);	
-	};
+	
  }
 };
