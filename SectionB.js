@@ -1,6 +1,6 @@
 module.exports = {
 	
-	before: function(browser){
+  before: function(browser){
 			browser
 				.windowMaximize()
 				.url('http://www.abc.net.au/radionational/')
@@ -102,7 +102,7 @@ module.exports = {
 				})
 			})
  },
-	after:function(browser){
+  after:function(browser){
 		browser.end();
 	}
 };	
